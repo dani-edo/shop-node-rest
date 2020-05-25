@@ -3,7 +3,7 @@ const router = express.Router();
 
 // use "/" because "/products" is already declared in app.js
 router.get("/", (req, res, next) => {
-  res.status(200).json({
+  res.status(201).json({
     messages: "handling GET request in /products",
   });
 });
