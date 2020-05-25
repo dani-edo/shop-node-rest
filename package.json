@@ -1,0 +1,19 @@
+{
+  "name": "shop-node-rest",
+  "version": "1.0.0",
+  "description": "Shop (A Node.js RESTful API)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node restful api"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Dani Edo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
