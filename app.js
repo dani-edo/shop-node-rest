@@ -2,9 +2,27 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
+
+// connect with mongodd database
+mongoose.connect(
+  // "mongodb+srv://dani_edo:" +
+  //   process.env.MONGO_ATLAS_PW +
+  //   "@node-shop-api-cluster-2nreu.mongodb.net/test?retryWrites=true&w=majority",
+  // upper this is wrong! use code below instead
+  "mongodb://dani_edo:" +
+    process.env.MONGO_ATLAS_PW +
+    "@node-shop-api-cluster-shard-00-00-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-01-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-02-2nreu.mongodb.net:27017/test?ssl=true&replicaSet=node-shop-api-cluster-shard-0&authSource=admin&retryWrites=true&w=majority",
+  {
+    //   useMongoClient: true
+    // up this is depreciated, use below instead (not in tutorial, but in terminal)
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 // for logging (look at the terminal after request)
 app.use(morgan("dev"));
