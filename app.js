@@ -23,6 +23,8 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
+// hide depreciated notification in terminal
+mongoose.Promise = global.Promise;
 
 // for logging (look at the terminal after request)
 app.use(morgan("dev"));
