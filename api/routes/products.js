@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Product = require("../models/products");
+const Product = require("../models/product");
 
 // use "/" because "/products" is already declared in app.js
 router.get("/", (req, res, next) => {
