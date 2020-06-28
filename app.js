@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
+const userRoutes = require("./api/routes/user");
 
 // connect with mongodd database
 mongoose.connect(
@@ -30,7 +31,7 @@ mongoose.Promise = global.Promise;
 app.use(morgan("dev"));
 
 // make uploads folder available for public
-app.use('/uploads', express.static("uploads"));
+app.use("/uploads", express.static("uploads"));
 
 // For body parser for req body
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,6 +59,7 @@ app.use((req, res, next) => {
 // Routes (Middleware) wich should handle request
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
+app.use("/user", userRoutes);
 
 // Its executed if above was not executed
 app.use((req, res, next) => {
