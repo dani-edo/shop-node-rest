@@ -29,6 +29,9 @@ mongoose.Promise = global.Promise;
 // for logging (look at the terminal after request)
 app.use(morgan("dev"));
 
+// make uploads folder available for public
+app.use('/uploads', express.static("uploads"));
+
 // For body parser for req body
 app.use(bodyParser.urlencoded({ extended: false }));
 // "extended: false" for simple urlencoded
