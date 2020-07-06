@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require("multer"); // plugin for form parser
+const chechAuth = require("../middleware/check-auth"); // middleware
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -110,7 +111,7 @@ router.get("/:productId", (req, res, next) => {
     });
 });
 
-router.post("/", upload.single("productImage"), (req, res, next) => {
+router.post("/", chechAuth, upload.single("productImage"), (req, res, next) => {
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -142,7 +143,7 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
     });
 });
 
-router.patch("/:productId", (req, res, next) => {
+router.patch("/:productId", chechAuth, (req, res, next) => {
   const id = req.params.productId;
   // res.status(200).json({
   //   message: "UPDATED products with id " + id,
@@ -170,7 +171,7 @@ router.patch("/:productId", (req, res, next) => {
     });
 });
 
-router.delete("/:productId", (req, res, next) => {
+router.delete("/:productId", chechAuth, (req, res, next) => {
   const id = req.params.productId;
   Product.remove({ _id: id })
     .exec()
