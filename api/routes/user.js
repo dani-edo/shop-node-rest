@@ -8,6 +8,10 @@ router.post("/signup", UserControler.user_signup);
 
 router.post("/login", UserControler.user_login);
 
+// router.get("/", UserControler.user_data);
+
+router.post("/check-auth", chechAuth, UserControler.user_data);
+
 router.delete("/:userId", chechAuth, UserControler.user_delete);
 
 module.exports = router;

@@ -104,3 +104,10 @@ exports.user_delete = (req, res, next) => {
       });
     });
 };
+
+exports.user_data = (req, res, next) => {
+  res.status(200).json({
+    user: "Kampret",
+    message: "Authorized",
+  });
+};
