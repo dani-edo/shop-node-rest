@@ -14,9 +14,7 @@ mongoose.connect(
   //   process.env.MONGO_ATLAS_PW +
   //   "@node-shop-api-cluster-2nreu.mongodb.net/test?retryWrites=true&w=majority",
   // upper this is wrong! use code below instead
-  "mongodb://dani_edo:" +
-    process.env.MONGO_ATLAS_PW +
-    "@node-shop-api-cluster-shard-00-00-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-01-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-02-2nreu.mongodb.net:27017/test?ssl=true&replicaSet=node-shop-api-cluster-shard-0&authSource=admin&retryWrites=true&w=majority",
+  "mongodb://dani_edo:153mongo@node-shop-api-cluster-shard-00-00-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-01-2nreu.mongodb.net:27017,node-shop-api-cluster-shard-00-02-2nreu.mongodb.net:27017/test?ssl=true&replicaSet=node-shop-api-cluster-shard-0&authSource=admin&retryWrites=true&w=majority",
   {
     //   useMongoClient: true
     // up this is depreciated, use below instead (not in tutorial, but in terminal)
